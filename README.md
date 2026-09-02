@@ -1,20 +1,29 @@
 # jobOS
 
-The operating system for getting hired.
+**The operating system for getting hired.**
 
-jobOS is a two-sided hiring automation platform: job seekers automate discovery, matching, applications and follow-ups; employers automate job creation, screening, candidate communication and hiring workflows.
+jobOS is a two-sided hiring automation platform for job seekers and employers.
 
-## Foundation
+## Current product surface
 
-This first slice establishes the visual/product foundation. The next implementation layers are:
+- AI-ranked job marketplace
+- Candidate dashboard and application tracker
+- Candidate profile workspace
+- Employer hiring dashboard
+- AI-assisted job creation
+- Hiring pipeline and talent radar
+- Career automation workflows
+- Deterministic job matching API
+- Candidate screening API
+- Jobs and applications API endpoints
 
-1. Candidate and employer authentication/onboarding
-2. Profiles, companies, jobs and applications
-3. Job marketplace and hiring pipeline
-4. AI matching and candidate ranking
-5. Workflow automation engine
-6. External job ingestion and integrations
-7. AI career and hiring agents
+## Stack
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- Lucide React
 
 ## Run locally
 
@@ -23,7 +32,17 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:3000.
+Then open `http://localhost:3000`.
+
+## API
+
+- `GET /api/jobs?q=react` — search jobs
+- `POST /api/match` — calculate candidate/job fit
+- `GET /api/applications` — application data
+- `POST /api/applications` — create an application payload
+- `POST /api/screen` — screen a candidate against a job description
+
+The current data layer is intentionally lightweight so the product can be demoed without external credentials. PostgreSQL, authentication, persistent workflows and production AI providers are the next backend layer.
 
 ## Product principle
 
