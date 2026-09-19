@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f7fb;
+  --foreground: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero-grid {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.14), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.12), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08), transparent 45%);
+}
+
+.card-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -12px rgba(15, 23, 42, 0.18);
+}
+
+@media print {
+  /* PDF report mode: print only the analytics report or CV paper */
+  body { background: #fff !important; color: #111 !important; }
+  body * { visibility: hidden; }
+  #analytics-report, #analytics-report * { visibility: visible; }
+  #cv-paper, #cv-paper * { visibility: visible; }
+  #analytics-report {
+    position: absolute; left: 0; top: 0; width: 100%;
+    background: #fff !important; color: #111 !important;
+    border: 1px solid #ccc !important; border-radius: 0 !important;
+  }
+  #cv-paper {
+    position: absolute; left: 0; top: 0; width: 100%;
+    box-shadow: none !important; border-radius: 0 !important;
+  }
+  #analytics-report * { color: #111 !important; border-color: #ddd !important; }
+  #analytics-report .bar { background: #059669 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .no-print { display: none !important; }
+}
